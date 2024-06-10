@@ -1,0 +1,27 @@
+version: '3.8'
+name: liteducation-grading
+services:
+  mongo:
+    container_name: lit-grading-mongo
+    image: 'mongo:7.0.5'
+    ports:
+      - 27018:27017
+    volumes:
+      - my-data:/var/lib/mongodb/data
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=example
+      - MONGO_INITDB_DATABASE=test
+
+  mongo-express:
+    container_name: lit-grading-mongo-express
+    image: 'mongo-express:1.0.2'
+    ports:
+      - 8082:8081
+    environment:
+      ME_CONFIG_MONGODB_URL: mongodb://root:example@lit-grading-mongo:27017
+      ME_CONFIG_BASICAUTH_USERNAME: username
+      ME_CONFIG_BASICAUTH_PASSWORD: password
+
+volumes:
+  my-data:
