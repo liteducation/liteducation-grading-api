@@ -5,7 +5,7 @@ import { PaginatedResultType } from "../serializers/paginated-response.serialize
 export interface BaseRepositoryInterface<T> {
   create(dto: Partial<T> | T | any): Promise<T>;
 
-  //bulkInsert(models: Array<Partial<T>>): Promise<Array<T>>;
+  bulkInsert(models: Array<Partial<T>>): Promise<Array<T>>;
 
   findOne(query: QueryOptions, projection?: string): Promise<HydratedDocument<T>>;
 
@@ -21,7 +21,7 @@ export interface BaseRepositoryInterface<T> {
 
   updateMany(filter: any, data: any): Promise<UpdateWriteOpResult>;
 
-  //softDelete(id: string): Promise<UpdateWriteOpResult>;
+  softDelete(id: string): Promise<UpdateWriteOpResult>;
 
   count(query: QueryOptions): Promise<number>;
 }

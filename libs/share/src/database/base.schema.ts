@@ -22,6 +22,6 @@ export class BaseSchema {
   @Prop()
   public updated_at: number;
 
-  // @Prop({ default: null })
-  // deleted_at?: Date; // soft delete
+  @Prop({ default: null })
+  deleted_at?: Date;
 }

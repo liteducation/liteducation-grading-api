@@ -53,6 +53,9 @@ importers:
       mongoose:
         specifier: ^8.4.1
         version: 8.4.1
+      mongoose-execution-time:
+        specifier: ^1.1.1
+        version: 1.1.1
       nanoid:
         specifier: '3'
         version: 3.3.7
@@ -2225,6 +2228,9 @@ packages:
         optional: true
       socks:
         optional: true
+
+  mongoose-execution-time@1.1.1:
+    resolution: {integrity: sha512-1/kp7Gp/HlV2whQvulKTjpKFFYVv1yHfZGJIZiWu05pyWjuKaE3oMaEz59ZgchS5iRDXh6aTzCIKzmlpp+aQ4A==}
 
   mongoose@8.4.1:
     resolution: {integrity: sha512-odQ2WEWGL3hb0Qex+QMN4eH6D34WdMEw7F1If2MGABApSDmG9cMmqv/G1H6WsXmuaH9mkuuadW/WbLE5+tHJwA==}
@@ -5628,6 +5634,8 @@ snapshots:
       '@mongodb-js/saslprep': 1.1.7
       bson: 6.7.0
       mongodb-connection-string-url: 3.0.1
+
+  mongoose-execution-time@1.1.1: {}
 
   mongoose@8.4.1:
     dependencies:
