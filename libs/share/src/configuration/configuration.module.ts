@@ -14,6 +14,8 @@ import { mongodbConfigSchema } from "./mongodb.schema";
       load: [buildMongoDBConfig],
       validationSchema: Joi.object({
         PORT: Joi.number().default(3001),
+        OPENAI_API_KEY: Joi.string().required(),
+        OPENAI_BASE_URL: Joi.string().required(),
         ...mongodbConfigSchema(),
       }),
     }),
