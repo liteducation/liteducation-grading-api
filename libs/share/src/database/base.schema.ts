@@ -1,6 +1,5 @@
 import { Schema } from "@nestjs/mongoose";
 import { Prop } from "@nestjs/mongoose";
-import { Document } from "mongoose";
 
 @Schema({
   _id: false,
@@ -14,7 +13,7 @@ import { Document } from "mongoose";
   },
 })
 export class BaseSchema {
-  _id?: string;
+  _id?: any;
 
   @Prop()
   public created_at: number;

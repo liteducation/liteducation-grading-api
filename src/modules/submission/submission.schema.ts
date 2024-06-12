@@ -1,3 +1,4 @@
+import { BaseSchema } from "@app/share/database/base.schema";
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import mongoose from "mongoose";
 import { STATUS } from "src/constants";
@@ -11,9 +12,7 @@ import { STATUS } from "src/constants";
   },
   versionKey: false,
 })
-export class AssignmentModel {
-  _id?: any;
-
+export class AssignmentModel extends BaseSchema {
   @Prop({
     required: true,
     index: true,
@@ -42,12 +41,6 @@ export class AssignmentModel {
     default: STATUS.SHOW,
   })
   status: number;
-
-  @Prop()
-  public created_at: number;
-
-  @Prop()
-  public updated_at: number;
 }
 
 export type AssignmentDocument = AssignmentModel & mongoose.Document;
