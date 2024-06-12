@@ -17,6 +17,7 @@ export class OpenAiService {
   }
 
   getCompletion(messages: OpenAI.ChatCompletionMessageParam[]): Observable<{ data: string; }> {
+    let result = "";
     return new Observable((subscriber) => {
       this.openAiService.chat.completions.create(
         {
@@ -29,6 +30,7 @@ export class OpenAiService {
             if (part.choices[0]?.delta?.content) {
               const formattedData = part.choices[0].delta.content ? part.choices[0].delta.content : '';
               subscriber.next({ data: formattedData });
+              result += formattedData;
             }
           }
           subscriber.complete();
@@ -39,7 +41,7 @@ export class OpenAiService {
   gradeEssay(submission: string, part: number): Observable<{ data: string; }> {
     return this.getCompletion([
       { role: 'system', content: `You are IELTS writing part ${part} grade tools. You evaluate the writing based on several key criteria used in the IELTS exam: Task Achievement, Coherence and Cohesion, Lexical Resource, Grammatical Range and Accuracy` },
-      { role: 'user', content: submission + '\nYou grade this essay with IELTS writing part 1 key criteria. The result follow the format: Overall Grade, Task Achievement, Coherence and Cohesion, Lexical Resource, Grammatical Range and Accuracy, mistakes and correct the mistakes, improvements' },
+      { role: 'user', content: submission + `\nYou grade this essay with IELTS writing part ${part} key criteria. The result follow the format: Overall Grade, Task Achievement, Coherence and Cohesion, Lexical Resource, Grammatical Range and Accuracy, mistakes and correct the mistakes, improvements` },
     ]);
   }
 }
