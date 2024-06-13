@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-import { ApiController } from './api.controller';
 import { ShareModule } from '@app/share';
 import { OpenAiModule } from './modules/openai/openai.module';
 import { ClassModule } from './modules/class/class.module';
@@ -8,6 +7,5 @@ import { SubmissionModule } from './modules/submission/submission.module';
 
 @Module({
   imports: [ShareModule, ClassModule, AssignmentModule, SubmissionModule, OpenAiModule],
-  controllers: [ApiController],
 })
 export class ApiModule { }

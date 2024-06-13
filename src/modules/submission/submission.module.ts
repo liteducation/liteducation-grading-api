@@ -15,6 +15,7 @@ import { SubmissionRepository } from './submission.repository';
     },
   ]),],
   providers: [SubmissionService, SubmissionRepository],
-  controllers: [SubmissionController]
+  controllers: [SubmissionController],
+  exports: [SubmissionService],
 })
 export class SubmissionModule { }

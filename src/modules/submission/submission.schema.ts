@@ -21,14 +21,20 @@ export class SubmissionModel extends BaseSchema {
 
   @Prop({
     required: true,
-  })
-  public name: string;
-
-  @Prop({
-    required: true,
     index: true,
   })
   public slug: string;
+
+  @Prop({
+    required: true,
+  })
+  public name: string;
+
+  @Prop()
+  public essay: string;
+
+  @Prop()
+  public result: string;
 
   @Prop({
     required: true,
