@@ -4,6 +4,7 @@ import { AssignmentController } from './assignment.controller';
 import { ShareModule } from '@app/share';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AssignmentModel, AssignmentSchema } from './assignment.schema';
+import { AssignmentRepository } from './assignment.repository';
 
 @Module({
   imports: [ShareModule, MongooseModule.forFeature([
@@ -13,7 +14,7 @@ import { AssignmentModel, AssignmentSchema } from './assignment.schema';
       collection: "assignments",
     },
   ]),],
-  providers: [AssignmentService],
+  providers: [AssignmentService, AssignmentRepository],
   controllers: [AssignmentController]
 })
 export class AssignmentModule { }
