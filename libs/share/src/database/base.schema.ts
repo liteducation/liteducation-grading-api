@@ -1,12 +1,12 @@
-import { Schema } from "@nestjs/mongoose";
-import { Prop } from "@nestjs/mongoose";
+import { Schema } from '@nestjs/mongoose';
+import { Prop } from '@nestjs/mongoose';
 
 @Schema({
   _id: false,
   id: false,
   timestamps: {
-    createdAt: "created_at",
-    updatedAt: "updated_at",
+    createdAt: 'created_at',
+    updatedAt: 'updated_at',
   },
   toJSON: {
     getters: true,

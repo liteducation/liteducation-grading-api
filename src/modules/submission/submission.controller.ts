@@ -5,9 +5,7 @@ import { GetSubmissionDto } from './dto/get-submission';
 
 @Controller('submission')
 export class SubmissionController {
-  constructor(
-    private readonly submissionService: SubmissionService,
-  ) { }
+  constructor(private readonly submissionService: SubmissionService) {}
 
   @Get('/by-assignment/:assignment_uid')
   getSubmissionsByAssignment(

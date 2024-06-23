@@ -12,6 +12,9 @@ export class OpenaiController {
   async streamGradeTest(
     @Body() { submission, part, assignment_uid, name }: GradeDto,
   ) {
-    return this.openaiService.gradeEssay(submission, part, { assignment_uid, name });
+    return this.openaiService.gradeEssay(submission, part, {
+      assignment_uid,
+      name,
+    });
   }
 }

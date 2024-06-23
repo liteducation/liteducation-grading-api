@@ -1,29 +1,29 @@
 export function shortDate(date: Date) {
-  return date.toLocaleDateString("vi-VN", { month: "2-digit", day: "2-digit" });
+  return date.toLocaleDateString('vi-VN', { month: '2-digit', day: '2-digit' });
 }
 
 //DD/MM/YYYY
 export function longDate(data: Date) {
-  return data.toLocaleDateString("vi-VN", {
-    month: "2-digit",
-    day: "2-digit",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
+  return data.toLocaleDateString('vi-VN', {
+    month: '2-digit',
+    day: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
   });
 }
 
 export function parseShortDate(date: string | undefined | null) {
   if (!date) return new Date();
 
-  const [day, month] = date.split("-");
+  const [day, month] = date.split('-');
   // Create a new Date object
   const currentDate = new Date();
   const result = new Date(
     currentDate.getFullYear(),
     parseInt(month, 10) - 1,
-    parseInt(day, 10)
+    parseInt(day, 10),
   );
   result.setUTCHours(0, 0, 0, 0);
   return result;
@@ -49,7 +49,7 @@ export function daysInMonth(year: number, month: number) {
 
 export function dateDiff(first: Date, second: Date) {
   return Math.round(
-    (second.getTime() - first.getTime()) / (1000 * 60 * 60 * 24)
+    (second.getTime() - first.getTime()) / (1000 * 60 * 60 * 24),
   );
 }
 
@@ -61,7 +61,7 @@ export function getNow() {
     now.getDate(),
     0,
     0,
-    0
+    0,
   );
   const endOfDate = new Date(
     now.getFullYear(),
@@ -69,7 +69,7 @@ export function getNow() {
     now.getDate(),
     23,
     59,
-    59
+    59,
   );
   return { startOfDate, endOfDate };
 }

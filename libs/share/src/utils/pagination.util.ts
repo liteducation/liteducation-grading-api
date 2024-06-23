@@ -1,5 +1,5 @@
-import { InfinityPaginationResultType } from "../serializers/infinity-pagination-result.serializer";
-import { PaginationOptionsType } from "../validators/pagination.validator";
+import { InfinityPaginationResultType } from '../serializers/infinity-pagination-result.serializer';
+import { PaginationOptionsType } from '../validators/pagination.validator';
 
 export const getPaginationProp = (page: number, limit: number) => {
   const offset = (page - 1) * limit;
@@ -16,7 +16,7 @@ export const getTotalPaginatedPages = (limit: number, totalItems: number) => {
 
 export const infinityPagination = <T>(
   data: T[],
-  options: PaginationOptionsType
+  options: PaginationOptionsType,
 ): InfinityPaginationResultType<T> => {
   return {
     data,

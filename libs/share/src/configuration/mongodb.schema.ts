@@ -1,9 +1,9 @@
-import * as Joi from "joi";
+import * as Joi from 'joi';
 
-export function mongodbConfigSchema(required = false, prefix = "MONGODB") {
+export function mongodbConfigSchema(required = false, prefix = 'MONGODB') {
   const schema = {};
   schema[`${prefix}_URI`] = Joi.string().default(
-    "mongodb://admin:example@localhost:27017/p90db"
+    'mongodb://admin:example@localhost:27017/p90db',
   );
 
   if (required) {

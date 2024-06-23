@@ -7,14 +7,17 @@ import { AssignmentModel, AssignmentSchema } from './assignment.schema';
 import { AssignmentRepository } from './assignment.repository';
 
 @Module({
-  imports: [ShareModule, MongooseModule.forFeature([
-    {
-      name: AssignmentModel.name,
-      schema: AssignmentSchema,
-      collection: "assignments",
-    },
-  ]),],
+  imports: [
+    ShareModule,
+    MongooseModule.forFeature([
+      {
+        name: AssignmentModel.name,
+        schema: AssignmentSchema,
+        collection: 'assignments',
+      },
+    ]),
+  ],
   providers: [AssignmentService, AssignmentRepository],
-  controllers: [AssignmentController]
+  controllers: [AssignmentController],
 })
-export class AssignmentModule { }
+export class AssignmentModule {}

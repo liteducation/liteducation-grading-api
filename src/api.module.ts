@@ -6,6 +6,12 @@ import { AssignmentModule } from './modules/assignment/assignment.module';
 import { SubmissionModule } from './modules/submission/submission.module';
 
 @Module({
-  imports: [ShareModule, ClassModule, AssignmentModule, SubmissionModule, OpenAiModule],
+  imports: [
+    ShareModule,
+    ClassModule,
+    AssignmentModule,
+    SubmissionModule,
+    OpenAiModule,
+  ],
 })
-export class ApiModule { }
+export class ApiModule {}

@@ -7,15 +7,18 @@ import { SubmissionModel, SubmissionSchema } from './submission.schema';
 import { SubmissionRepository } from './submission.repository';
 
 @Module({
-  imports: [ShareModule, MongooseModule.forFeature([
-    {
-      name: SubmissionModel.name,
-      schema: SubmissionSchema,
-      collection: "assignments",
-    },
-  ]),],
+  imports: [
+    ShareModule,
+    MongooseModule.forFeature([
+      {
+        name: SubmissionModel.name,
+        schema: SubmissionSchema,
+        collection: 'assignments',
+      },
+    ]),
+  ],
   providers: [SubmissionService, SubmissionRepository],
   controllers: [SubmissionController],
   exports: [SubmissionService],
 })
-export class SubmissionModule { }
+export class SubmissionModule {}

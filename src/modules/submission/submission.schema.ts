@@ -1,14 +1,14 @@
-import { BaseSchema } from "@app/share/database/base.schema";
-import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
-import mongoose from "mongoose";
-import { STATUS } from "src/constants";
+import { BaseSchema } from '@app/share/database/base.schema';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import mongoose from 'mongoose';
+import { STATUS } from 'src/constants';
 
 @Schema({
   _id: false,
   id: false,
   timestamps: {
-    createdAt: "created_at",
-    updatedAt: "updated_at",
+    createdAt: 'created_at',
+    updatedAt: 'updated_at',
   },
   versionKey: false,
 })
@@ -52,7 +52,7 @@ export class SubmissionModel extends BaseSchema {
 export type SubmissionDocument = SubmissionModel & mongoose.Document;
 const schema = SchemaFactory.createForClass(SubmissionModel);
 
-schema.pre("save", function (this: SubmissionModel, next) {
+schema.pre('save', function (this: SubmissionModel, next) {
   this.updated_at = Date.now();
   next();
 });

@@ -1,16 +1,12 @@
-import {
-  HydratedDocument,
-  Model,
-  UpdateWriteOpResult,
-  } from "mongoose";
-import { NullableType } from "../types/nullable.type";
-import { BaseSchema } from "./base.schema";
-import { QueryOptions } from "../validators/query-options.validator";
-import { PaginatedResultType } from "../serializers/paginated-response.serializer";
+import { HydratedDocument, Model, UpdateWriteOpResult } from 'mongoose';
+import { NullableType } from '../types/nullable.type';
+import { BaseSchema } from './base.schema';
+import { QueryOptions } from '../validators/query-options.validator';
+import { PaginatedResultType } from '../serializers/paginated-response.serializer';
 import {
   getPaginationProp,
   getTotalPaginatedPages,
-} from "../utils/pagination.util";
+} from '../utils/pagination.util';
 
 export abstract class BaseRepositoryAbstract<T extends BaseSchema> {
   protected constructor(private readonly model: Model<T>) {
@@ -26,13 +22,13 @@ export abstract class BaseRepositoryAbstract<T extends BaseSchema> {
   }
 
   async findOne(
-    query: QueryOptions
+    query: QueryOptions,
   ): Promise<NullableType<HydratedDocument<T>>> {
     let dataQuery = null;
 
     dataQuery = this.model.findOne(query.filter);
 
-    if (process.env.NODE_ENV === "production") {
+    if (process.env.NODE_ENV === 'production') {
       if (query.cache_time) {
         return dataQuery.cacheQuery({
           TTL: query.cache_time,
@@ -77,7 +73,7 @@ export abstract class BaseRepositoryAbstract<T extends BaseSchema> {
       return dataQuery.cursor();
     }
 
-    if (process.env.NODE_ENV === "production") {
+    if (process.env.NODE_ENV === 'production') {
       if (query.cache_time) {
         return dataQuery.cacheQuery({
           TTL: query.cache_time,
@@ -91,7 +87,7 @@ export abstract class BaseRepositoryAbstract<T extends BaseSchema> {
 
   // Manual offset is disabled for pagination
   async findWithPagination(
-    query: QueryOptions
+    query: QueryOptions,
   ): Promise<PaginatedResultType<HydratedDocument<T>>> {
     let dataQuery: any;
     let dataCountQuery: any;
@@ -108,7 +104,6 @@ export abstract class BaseRepositoryAbstract<T extends BaseSchema> {
       dataQuery.sort(query.sort);
     }
 
-
     if (query.select) {
       dataCountQuery.select(query.select);
       dataQuery.select(query.select);
@@ -120,7 +115,7 @@ export abstract class BaseRepositoryAbstract<T extends BaseSchema> {
       dataQuery.limit(query.limit);
     }
 
-    if (process.env.NODE_ENV === "production") {
+    if (process.env.NODE_ENV === 'production') {
       if (query.cache_time) {
         const countQuery = await dataCountQuery.cacheQuery({
           TTL: query.cache_time,
@@ -168,7 +163,7 @@ export abstract class BaseRepositoryAbstract<T extends BaseSchema> {
   }
 
   async softDelete(id: number | string): Promise<UpdateWriteOpResult> {
-    return await this.model.updateOne({_id: id}, {deleted_at: new Date()});
+    return await this.model.updateOne({ _id: id }, { deleted_at: new Date() });
   }
 
   async count(query: QueryOptions): Promise<number> {
@@ -180,7 +175,7 @@ export abstract class BaseRepositoryAbstract<T extends BaseSchema> {
       dataQuery = this.model.countDocuments({});
     }
 
-    if (process.env.NODE_ENV === "production") {
+    if (process.env.NODE_ENV === 'production') {
       if (query.cache_time) {
         return dataQuery.cacheQuery({
           TTL: query.cache_time,

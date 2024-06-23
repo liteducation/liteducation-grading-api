@@ -1,4 +1,4 @@
-import { IsBoolean, IsInt, IsOptional, ValidateNested } from "class-validator";
+import { IsBoolean, IsInt, IsOptional, ValidateNested } from 'class-validator';
 
 export type InfinityPaginationResultType<T> = Readonly<{
   data: T[];

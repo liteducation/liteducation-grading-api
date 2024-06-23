@@ -1,10 +1,8 @@
-import { Module } from "@nestjs/common";
-import { ConfigModule } from "@nestjs/config";
-import { buildMongoDBConfig } from "./mongodb.config";
-import * as Joi from "joi";
-import { mongodbConfigSchema } from "./mongodb.schema";
-;
-
+import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
+import { buildMongoDBConfig } from './mongodb.config';
+import * as Joi from 'joi';
+import { mongodbConfigSchema } from './mongodb.schema';
 @Module({
   imports: [
     ConfigModule.forRoot({

@@ -8,16 +8,16 @@ import { ClassRepository } from './class.repository';
 
 @Module({
   imports: [
-    ShareModule, 
+    ShareModule,
     MongooseModule.forFeature([
       {
         name: ClassModel.name,
         schema: ClassSchema,
-        collection: "class",
+        collection: 'class',
       },
     ]),
   ],
   providers: [ClassService, ClassRepository],
-  controllers: [ClassController]
+  controllers: [ClassController],
 })
-export class ClassModule { }
+export class ClassModule {}

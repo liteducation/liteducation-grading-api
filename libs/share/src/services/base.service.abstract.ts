@@ -1,10 +1,10 @@
-import { HydratedDocument, UpdateWriteOpResult } from "mongoose";
-import { BaseRepositoryInterface } from "../database/base.repository.interface";
-import { BaseSchema } from "../database/base.schema";
-import { QueryOptions } from "../validators/query-options.validator";
-import { BaseServiceInterface } from "./base.service.interface";
-import { NullableType } from "joi";
-import { PaginatedResultType } from "../serializers/paginated-response.serializer";
+import { HydratedDocument, UpdateWriteOpResult } from 'mongoose';
+import { BaseRepositoryInterface } from '../database/base.repository.interface';
+import { BaseSchema } from '../database/base.schema';
+import { QueryOptions } from '../validators/query-options.validator';
+import { BaseServiceInterface } from './base.service.interface';
+import { NullableType } from 'joi';
+import { PaginatedResultType } from '../serializers/paginated-response.serializer';
 
 export abstract class BaseServiceAbstract<T extends BaseSchema>
   implements BaseServiceInterface<T>
@@ -32,7 +32,7 @@ export abstract class BaseServiceAbstract<T extends BaseSchema>
   }
 
   findWithPagination(
-    query: QueryOptions
+    query: QueryOptions,
   ): Promise<PaginatedResultType<HydratedDocument<T>>> {
     return this.repository.findWithPagination(query);
   }

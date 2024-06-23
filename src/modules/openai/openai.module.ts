@@ -9,4 +9,4 @@ import { SubmissionModule } from '../submission/submission.module';
   exports: [OpenAiService],
   controllers: [OpenaiController],
 })
-export class OpenAiModule { }
+export class OpenAiModule {}

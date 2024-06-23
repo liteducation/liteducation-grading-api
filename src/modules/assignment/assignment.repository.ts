@@ -1,19 +1,21 @@
-import { Injectable } from "@nestjs/common";
-import { InjectModel } from "@nestjs/mongoose";
-import { Model } from "mongoose";
-import { BaseRepositoryInterface } from "@app/share/database/base.repository.interface";
-import { AssignmentModel } from "./assignment.schema";
-import { BaseRepositoryAbstract } from "@app/share/database/base.repository.abstract";
+import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import { BaseRepositoryInterface } from '@app/share/database/base.repository.interface';
+import { AssignmentModel } from './assignment.schema';
+import { BaseRepositoryAbstract } from '@app/share/database/base.repository.abstract';
 
-export type AssignmentRepositoryInterface = BaseRepositoryInterface<AssignmentModel>;
+export type AssignmentRepositoryInterface =
+  BaseRepositoryInterface<AssignmentModel>;
 
 @Injectable()
 export class AssignmentRepository
   extends BaseRepositoryAbstract<AssignmentModel>
-  implements AssignmentRepositoryInterface {
+  implements AssignmentRepositoryInterface
+{
   constructor(
     @InjectModel(AssignmentModel.name)
-    private readonly assignmentModel: Model<AssignmentModel>
+    private readonly assignmentModel: Model<AssignmentModel>,
   ) {
     super(assignmentModel);
   }

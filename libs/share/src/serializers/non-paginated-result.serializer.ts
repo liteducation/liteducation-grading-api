@@ -1,4 +1,4 @@
-import { IsInt, IsOptional, ValidateNested } from "class-validator";
+import { IsInt, IsOptional, ValidateNested } from 'class-validator';
 
 export type NonPaginatedResultType<T> = Readonly<{
   data: T[];

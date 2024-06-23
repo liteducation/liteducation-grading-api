@@ -4,11 +4,8 @@ import { ConfigurationModule } from './configuration/configuration.module';
 import { DatabaseModule } from './database/database.module';
 
 @Module({
-  imports: [
-    ConfigurationModule,
-    DatabaseModule,
-  ],
+  imports: [ConfigurationModule, DatabaseModule],
   providers: [ShareService],
   exports: [ShareService],
 })
-export class ShareModule { }
+export class ShareModule {}
