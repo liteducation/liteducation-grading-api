@@ -13,7 +13,7 @@ import { SubmissionRepository } from './submission.repository';
       {
         name: SubmissionModel.name,
         schema: SubmissionSchema,
-        collection: 'assignments',
+        collection: 'submission',
       },
     ]),
   ],

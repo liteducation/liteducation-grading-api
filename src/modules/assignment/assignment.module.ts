@@ -13,7 +13,7 @@ import { AssignmentRepository } from './assignment.repository';
       {
         name: AssignmentModel.name,
         schema: AssignmentSchema,
-        collection: 'assignments',
+        collection: 'assignment',
       },
     ]),
   ],
