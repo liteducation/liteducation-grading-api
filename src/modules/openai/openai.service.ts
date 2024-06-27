@@ -2,7 +2,7 @@ import OpenAI from 'openai';
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { Observable } from 'rxjs';
-import { SubmissionService } from '../submission/submission.service';
+// import { SubmissionService } from '../submission/submission.service';
 
 @Injectable()
 export class OpenAiService {
@@ -10,7 +10,7 @@ export class OpenAiService {
 
   constructor(
     private readonly configService: ConfigService,
-    private readonly submissionService: SubmissionService,
+    // private readonly submissionService: SubmissionService,
   ) {
     this.openAiService = new OpenAI({
       apiKey: this.configService.get('OPENAI_API_KEY'),
@@ -21,7 +21,7 @@ export class OpenAiService {
   gradeEssay(
     essay: string,
     part: number,
-    { assignment_uid, name }: { assignment_uid?: string; name?: string },
+    // { assignment_uid, name }: { assignment_uid?: string; name?: string },
   ): Observable<{ data: string }> {
     let result = '';
     return new Observable((subscriber) => {
@@ -48,18 +48,19 @@ export class OpenAiService {
               const formattedData = part.choices[0].delta.content
                 ? part.choices[0].delta.content
                 : '';
-              subscriber.next({ data: formattedData });
+              subscriber.next({ data: `${formattedData}` });
               result += formattedData;
             }
           }
-          if (assignment_uid && name) {
-            await this.submissionService.createSubmission(
-              assignment_uid,
-              name,
-              essay,
-              result,
-            );
-          }
+          // if (assignment_uid && name) {
+          //   await this.submissionService.createSubmission(
+          //     assignment_uid,
+          //     name,
+          //     essay,
+          //     result,
+          //   );
+          // }
+          console.log(result);
           subscriber.complete();
         });
     });
