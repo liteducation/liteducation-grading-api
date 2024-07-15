@@ -1,6 +1,9 @@
 module.exports = {
   env: {
-    "NEXT_PUBLIC_API_URL": "https://liteducation-grading-api.nvf.one",
+    "PORT": 3001,
+    "MONGODB_URI": "",
+    "OPENAI_API_KEY": "",
+    "OPENAI_BASE_URL": "",
   },
   apps : [{
     name   : "liteducation-grading-web",
