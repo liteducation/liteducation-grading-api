@@ -1,0 +1,12 @@
+module.exports = {
+  apps : [{
+    name   : "liteducation-grading-api",
+    env: {
+      "PORT": 3001,
+      "MONGODB_URI": "",
+      "OPENAI_API_KEY": "",
+      "OPENAI_BASE_URL": "",
+    },
+    script : "./dist/main.js"
+  }]
+}
