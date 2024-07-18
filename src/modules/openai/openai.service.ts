@@ -2,7 +2,7 @@ import OpenAI from 'openai';
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { Observable } from 'rxjs';
-// import { SubmissionService } from '../submission/submission.service';
+// import { SubmissionService } from '../submissions/submissions.service';
 
 @Injectable()
 export class OpenAiService {

@@ -1,16 +1,16 @@
 import { Module } from '@nestjs/common';
 import { ShareModule } from '@app/share';
 import { OpenAiModule } from './modules/openai/openai.module';
-import { ClassModule } from './modules/class/class.module';
-import { AssignmentModule } from './modules/assignment/assignment.module';
-import { SubmissionModule } from './modules/submission/submission.module';
+import { ClassesModule } from './modules/classes/classes.module';
+import { AssignmentsModule } from './modules/assignments/assignments.module';
+import { SubmissionsModule } from './modules/submissions/submissions.module';
 
 @Module({
   imports: [
     ShareModule,
-    ClassModule,
-    AssignmentModule,
-    SubmissionModule,
+    ClassesModule,
+    AssignmentsModule,
+    SubmissionsModule,
     OpenAiModule,
   ],
 })

@@ -12,7 +12,7 @@ import { STATUS } from 'src/constants';
   },
   versionKey: false,
 })
-export class SubmissionModel extends BaseSchema {
+export class SubmissionsModel extends BaseSchema {
   @Prop({
     required: true,
     index: true,
@@ -49,13 +49,13 @@ export class SubmissionModel extends BaseSchema {
   status: number;
 }
 
-export type SubmissionDocument = SubmissionModel & mongoose.Document;
-const schema = SchemaFactory.createForClass(SubmissionModel);
+export type SubmissionDocument = SubmissionsModel & mongoose.Document;
+const schema = SchemaFactory.createForClass(SubmissionsModel);
 
-schema.pre('save', function (this: SubmissionModel, next) {
+schema.pre('save', function (this: SubmissionsModel, next) {
   this.updated_at = Date.now();
   next();
 });
-schema.loadClass(SubmissionModel);
+schema.loadClass(SubmissionsModel);
 
-export const SubmissionSchema = schema;
+export const SubmissionsSchema = schema;

@@ -46,4 +46,4 @@ schema.pre('save', function (this: ClassModel, next) {
 });
 schema.loadClass(ClassModel);
 
-export const ClassSchema = schema;
+export const ClassesSchema = schema;

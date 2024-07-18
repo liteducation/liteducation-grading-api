@@ -1,13 +1,13 @@
 import { Controller, Get, Param } from '@nestjs/common';
-import { SubmissionService } from './submission.service';
+import { SubmissionsService } from './submissions.service';
 import { GetSubmissionsByAssignmentDto } from './dto/get-submissions-by-assignment.dto';
 import { GetSubmissionDto } from './dto/get-submission';
 
 @Controller('submission')
-export class SubmissionController {
-  constructor(private readonly submissionService: SubmissionService) {}
+export class SubmissionsController {
+  constructor(private readonly submissionService: SubmissionsService) {}
 
-  @Get('/by-assignment/:assignment_uid')
+  @Get('/by-assignments/:assignment_uid')
   getSubmissionsByAssignment(
     @Param() { assignment_uid }: GetSubmissionsByAssignmentDto,
   ) {

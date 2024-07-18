@@ -52,4 +52,4 @@ schema.pre('save', function (this: AssignmentModel, next) {
 });
 schema.loadClass(AssignmentModel);
 
-export const AssignmentSchema = schema;
+export const AssignmentsSchema = schema;

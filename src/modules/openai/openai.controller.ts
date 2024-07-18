@@ -11,7 +11,7 @@ export class OpenaiController {
   @Sse()
   @HttpCode(200)
   async streamGradeTest(
-    // @Body() { submission, part, assignment_uid, name }: GradeDto,
+    // @Body() { submissions, part, assignment_uid, name }: GradeDto,
     @Body() { submission, part }: GradeDto,
   ): Promise<Observable<{ data: string }>> {
     return this.openaiService.gradeEssay(submission, part) as Observable<{

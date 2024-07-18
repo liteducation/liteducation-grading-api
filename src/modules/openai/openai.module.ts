@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { OpenAiService } from './openai.service';
 import { OpenaiController } from './openai.controller';
-import { SubmissionModule } from '../submission/submission.module';
+import { SubmissionModule } from '../submissions/submissions.module';
 
 @Module({
   imports: [SubmissionModule],
