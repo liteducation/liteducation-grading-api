@@ -3,20 +3,20 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { BaseRepositoryInterface } from '@app/share/database/base.repository.interface';
 import { BaseRepositoryAbstract } from '@app/share/database/base.repository.abstract';
-import { SubmissionsModel } from './submissions.schema';
+import { SubmissionModel } from './submission.schema';
 
 export type SubmissionRepositoryInterface =
-  BaseRepositoryInterface<SubmissionsModel>;
+  BaseRepositoryInterface<SubmissionModel>;
 
 @Injectable()
 export class SubmissionsRepository
-  extends BaseRepositoryAbstract<SubmissionsModel>
+  extends BaseRepositoryAbstract<SubmissionModel>
   implements SubmissionRepositoryInterface
 {
   constructor(
-    @InjectModel(SubmissionsModel.name)
-    private readonly submissionsModel: Model<SubmissionsModel>,
+    @InjectModel(SubmissionModel.name)
+    private readonly submissionModel: Model<SubmissionModel>,
   ) {
-    super(submissionsModel);
+    super(submissionModel);
   }
 }

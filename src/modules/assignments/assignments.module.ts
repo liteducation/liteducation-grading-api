@@ -3,7 +3,7 @@ import { AssignmentsService } from './assignments.service';
 import { AssignmentsController } from './assignments.controller';
 import { ShareModule } from '@app/share';
 import { MongooseModule } from '@nestjs/mongoose';
-import { AssignmentModel, AssignmentsSchema } from './assignments.schema';
+import { AssignmentModel, AssignmentSchema } from './assignment.schema';
 import { AssignmentsRepository } from './assignments.repository';
 
 @Module({
@@ -12,7 +12,7 @@ import { AssignmentsRepository } from './assignments.repository';
     MongooseModule.forFeature([
       {
         name: AssignmentModel.name,
-        schema: AssignmentsSchema,
+        schema: AssignmentSchema,
         collection: 'assignments',
       },
     ]),

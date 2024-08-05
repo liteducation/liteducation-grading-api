@@ -3,7 +3,7 @@ import { ClassesService } from './classes.service';
 import { ClassesController } from './classes.controller';
 import { ShareModule } from '@app/share';
 import { MongooseModule } from '@nestjs/mongoose';
-import { ClassModel, ClassesSchema } from './classes.schema';
+import { ClassModel, ClassSchema } from './class.schema';
 import { ClassesRepository } from './classes.repository';
 
 @Module({
@@ -12,7 +12,7 @@ import { ClassesRepository } from './classes.repository';
     MongooseModule.forFeature([
       {
         name: ClassModel.name,
-        schema: ClassesSchema,
+        schema: ClassSchema,
         collection: 'classes',
       },
     ]),

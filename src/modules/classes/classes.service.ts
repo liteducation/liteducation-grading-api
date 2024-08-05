@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { BaseServiceAbstract } from '@app/share/services/base.service.abstract';
-import { ClassModel } from './classes.schema';
+import { ClassModel } from './class.schema';
 import { ClassesRepository } from './classes.repository';
 
 @Injectable()

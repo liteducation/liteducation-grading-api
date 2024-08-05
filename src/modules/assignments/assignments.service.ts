@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { BaseServiceAbstract } from '@app/share/services/base.service.abstract';
-import { AssignmentModel } from './assignments.schema';
+import { AssignmentModel } from './assignment.schema';
 import { AssignmentsRepository } from './assignments.repository';
 
 @Injectable()

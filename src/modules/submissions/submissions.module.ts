@@ -3,16 +3,16 @@ import { SubmissionsService } from './submissions.service';
 import { SubmissionsController } from './submissions.controller';
 import { ShareModule } from '@app/share';
 import { MongooseModule } from '@nestjs/mongoose';
-import { SubmissionsModel, SubmissionsSchema } from './submissions.schema';
 import { SubmissionsRepository } from './submissions.repository';
+import { SubmissionModel, SubmissionSchema } from './submission.schema';
 
 @Module({
   imports: [
     ShareModule,
     MongooseModule.forFeature([
       {
-        name: SubmissionsModel.name,
-        schema: SubmissionsSchema,
+        name: SubmissionModel.name,
+        schema: SubmissionSchema,
         collection: 'submissions',
       },
     ]),
