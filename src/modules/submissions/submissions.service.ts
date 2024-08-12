@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { BaseServiceAbstract } from '@app/share/services/base.service.abstract';
 import { SubmissionsRepository } from './submissions.repository';
 import { ShareService } from '@app/share';
-import { SubmissionModel } from "./submission.schema";
+import { SubmissionModel } from './submission.schema';
 
 @Injectable()
 export class SubmissionsService extends BaseServiceAbstract<SubmissionModel> {
