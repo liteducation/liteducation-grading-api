@@ -7,14 +7,14 @@ import { Observable } from 'rxjs';
 export class OpenaiController {
   constructor(private readonly openaiService: OpenAiService) {}
 
-  @Post('grade')
+  @Post('grade/writing')
   @Sse()
   @HttpCode(200)
-  async streamGradeTest(
+  async gradeWriting(
     // @Body() { submissions, part, assignment_uid, name }: GradeDto,
     @Body() { submission, part }: GradeDto,
   ): Promise<Observable<{ data: string }>> {
-    return this.openaiService.gradeEssay(submission, part) as Observable<{
+    return this.openaiService.gradeWriting(submission, part) as Observable<{
       data: string;
     }>;
   }
